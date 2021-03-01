@@ -43,7 +43,8 @@ fun Home() {
         }
     ) {
         val viewModel: MainViewModel = viewModel()
-        PuppyList(viewModel.puppyList,
+        PuppyList(
+            viewModel.puppyList,
             { puppy ->
                 viewModel.showPuppy(puppy)
             },
@@ -51,7 +52,8 @@ fun Home() {
                 coroutineScope.launch {
                     snackbarHostState.showSnackbar("Thanks for you have adopted me,i am ${puppy.name}")
                 }
-            })
+            }
+        )
 
         val puppy = viewModel.currentPuppy
         if (puppy != null) {
