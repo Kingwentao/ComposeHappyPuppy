@@ -18,12 +18,16 @@ package com.example.androiddevchallenge.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -34,7 +38,10 @@ import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Puppy
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.ui.theme.buttonColor
@@ -69,7 +76,10 @@ fun PuppyItem(
 ) {
     Card(modifier) {
         Row {
-            Column(Modifier.width(120.dp).padding(start = 5.dp)) {
+            Column(
+                Modifier
+                    .width(120.dp)
+                    .padding(start = 5.dp)) {
                 Text(puppy.name, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Text("Breed:" + puppy.breed, fontSize = 12.sp)
                 Text("Age:" + puppy.age, fontSize = 12.sp)
@@ -78,7 +88,7 @@ fun PuppyItem(
                         onAdopt(puppy)
                     },
                     Modifier
-                        .padding(top= 20.dp),
+                        .padding(top = 20.dp),
                     shape = MaterialTheme.shapes.large,
                     colors = ButtonDefaults.buttonColors(buttonColor)
                 ) {
